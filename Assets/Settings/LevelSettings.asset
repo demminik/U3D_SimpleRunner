@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b396d06b1e0f74f4988e13364f284496, type: 3}
+  m_Name: LevelSettings
+  m_EditorClassIdentifier: 
+  _tileSet: {fileID: 11400000, guid: 9bbf2cced77058a46ba57fe085a67fca, type: 2}
+  _maxPossibleTilesBehindCharacter: 1
+  _maxPossibleTilesTotal: 10
+  _contentGenerationSettings:
+    StartTilesWithNoCoins: 2
+    StartTilesWithNoObstacles: 4
+    CoinsAppearChance: 50
+    SpecialCoinAppearChance: 30
+    SpecialCoinAppearCooldown: 10
+    ObstacleAppearChance: 50
+    ObstacleAppearCooldown: 2
+    AvailableSpecialCoins: {fileID: 11400000, guid: 9fde0b2788a7b9149bed4ae06d5fe613, type: 2}

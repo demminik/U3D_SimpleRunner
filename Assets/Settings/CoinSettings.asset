@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eabf8ae9409888743a69556f206bd583, type: 3}
+  m_Name: CoinSettings
+  m_EditorClassIdentifier: 
+  _basePrefab: {fileID: 9147608272711484337, guid: 6cca3b6087e9e524b8d4fbf5c87f165b, type: 3}
+  _skins:
+  - {fileID: 7819181988798174944, guid: a45fc8bd6d209314fa9a5c8c03f7a086, type: 3}
+  - {fileID: 7819181988798174944, guid: 8659c14eb815eca4a81c635ccf67aec2, type: 3}
+  - {fileID: 7819181988798174944, guid: 49d0e6d3eafeb7441a219890c0fd3128, type: 3}
+  - {fileID: 7819181988798174944, guid: c48d07e14b8487445b1f22a1a37ebb68, type: 3}
+  _data:
+  - CoinType: 1
+    ScoreValue: 5
+    CharacterBuffs: {fileID: 0}
+  - CoinType: 2
+    ScoreValue: 5
+    CharacterBuffs: {fileID: 11400000, guid: 157058f240d14164f8426a932ff40c3c, type: 2}
+  - CoinType: 3
+    ScoreValue: 5
+    CharacterBuffs: {fileID: 11400000, guid: b06274e9c91b3f64491a423f6b1c80fd, type: 2}
+  - CoinType: 4
+    ScoreValue: 5
+    CharacterBuffs: {fileID: 11400000, guid: 8b8b6cf85ff49ba468c6f6cf79db3bd3, type: 2}
