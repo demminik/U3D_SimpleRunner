@@ -185,9 +185,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c46ac109cc66a9b4aa57165e577513e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _coinSettings: {fileID: 11400000, guid: 16fc49d07c7f9e94091d0cbbb5b3f781, type: 2}
   _coinsRoot: {fileID: 1208486200}
-  _obstaclePrefab: {fileID: 2215623932759734537, guid: b5692973303504347a03dfd50cf70892, type: 3}
   _obstaclesRoot: {fileID: 1765747370}
 --- !u!4 &535880781
 Transform:

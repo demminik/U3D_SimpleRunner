@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _tileSet: {fileID: 11400000, guid: 9bbf2cced77058a46ba57fe085a67fca, type: 2}
   _maxPossibleTilesBehindCharacter: 1
-  _maxPossibleTilesTotal: 10
+  _maxPossibleTilesTotal: 15
   _contentGenerationSettings:
     StartTilesWithNoCoins: 2
     StartTilesWithNoObstacles: 4
