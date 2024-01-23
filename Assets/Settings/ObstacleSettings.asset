@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e69cf5ab8deb18c4a8222bb9f2613317, type: 3}
   m_Name: ObstacleSettings
   m_EditorClassIdentifier: 
-  _prefab: {fileID: 3844173642287271359, guid: 2afa78e75d1d15e469a309af62006010, type: 3}
+  _prefab: {fileID: 3844173642287271359, guid: 6fd83efb9a4bdb04cb10c67de8263008, type: 3}
