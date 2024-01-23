@@ -1,6 +1,11 @@
+#Unity stuff
 /[Ll]ibrary/
 /[Tt]emp/
 /[Oo]bj/
 /[Bb]uilds/
 /[Ll]ogs/
 /[Uu]ser[Ss]ettings/
+
+#Visual Studio stuff
+.vs/
+.vsconfig
