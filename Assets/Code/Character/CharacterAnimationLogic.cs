@@ -36,7 +36,7 @@ namespace Runner.Gameplay.Core.Characters {
         private void UpdateAnimationParams() {
             if(Animator != null) {
                 // TODO: cache parameter names
-                Animator.SetFloat("MovementSpeed", _runningObject.MaxSpeed);
+                Animator.SetFloat("MovementSpeed", _runningObject.CurrentSpeed);
                 Animator.SetBool("InAir", _runningObject.IsInAir);
             }
         }

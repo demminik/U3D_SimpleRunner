@@ -13,6 +13,7 @@ namespace Runner.Gameplay.Core.Characters {
         public bool IsRunning { get; private set; } = false;
         public float MaxSpeed { get; private set; }
         public float AccelerationSpeed { get; private set; }
+        public float CurrentSpeed { get; private set; }
         public float FloatingHeight { get; private set; }
 
         public Vector3 CurrentPosition => transform.position;
@@ -38,6 +39,8 @@ namespace Runner.Gameplay.Core.Characters {
         }
 
         public void Dispose() {
+            StopRunning();
+
             _currentParametersProvider = null;
 
             UnsubscribeFromBuffs();
@@ -47,8 +50,24 @@ namespace Runner.Gameplay.Core.Characters {
         }
 
         public void Tick(float deltaTime) {
-            transform.rotation = _targetRotation;
+            TickSpeed(deltaTime);
+            TickRotation(deltaTime);
+            TickPosition(deltaTime);
+        }
 
+        private void TickSpeed(float deltaTime) {
+            if (IsRunning) {
+                CurrentSpeed = Mathf.MoveTowards(CurrentSpeed, MaxSpeed, AccelerationSpeed * deltaTime);
+            } else {
+                CurrentSpeed = 0f;
+            }
+        }
+
+        private void TickRotation(float deltaTime) {
+            transform.rotation = _targetRotation;
+        }
+
+        private void TickPosition(float deltaTime) {
             var speedForCalculations = Mathf.Max(_currentParametersProvider.MaxSpeed, MaxSpeed);
 
             // TODO: this is lazy smooth movement, need to write correct algorithm for side and vertical movement
@@ -60,7 +79,7 @@ namespace Runner.Gameplay.Core.Characters {
             var newPositionVector = newPosition - transform.position;
 
             // limit movement for not to surpass target mosition
-            if(newPositionVector.sqrMagnitude > targetPositionVector.sqrMagnitude) {
+            if (newPositionVector.sqrMagnitude > targetPositionVector.sqrMagnitude) {
                 newPosition = targetPosition;
             }
             transform.position = newPosition;
@@ -84,10 +103,12 @@ namespace Runner.Gameplay.Core.Characters {
 
         public void StartRunning() {
             IsRunning = true;
+            CurrentSpeed = 0f;
         }
 
         public void StopRunning() {
             IsRunning = false;
+            CurrentSpeed = 0f;
         }
 
         private void SubscribeTuBuffs() {

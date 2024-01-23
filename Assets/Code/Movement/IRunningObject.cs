@@ -8,6 +8,7 @@ namespace Runner.Gameplay.Core.Movement {
 
         float MaxSpeed { get; }
         float AccelerationSpeed { get; }
+        float CurrentSpeed { get; }
 
         public Vector3 CurrentPosition { get; }
         public Quaternion CurrentRotation { get; }

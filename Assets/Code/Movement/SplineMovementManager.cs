@@ -1,6 +1,5 @@
 using Runner.Gameplay.Core.Levels;
 using Runner.Gameplay.Core.Tiles;
-using System;
 using UnityEngine;
 
 namespace Runner.Gameplay.Core.Movement {
@@ -18,11 +17,6 @@ namespace Runner.Gameplay.Core.Movement {
             public float DistanceTraveled;
         }
 
-        private struct RunnerSpeedData {
-
-            public float CurrentForwardSpeed;
-        }
-
         private RunnerGameplayFasade _gameplayFasade;
         private IRunningObject _runner;
         private ILevelLogic _levelLogic;
@@ -38,8 +32,6 @@ namespace Runner.Gameplay.Core.Movement {
         }
 
         private SplineInfo _currentSplineInfo;
-
-        private RunnerSpeedData _runnerSpeedData;
 
         public SplineMovementManager(RunnerGameplayFasade gameplayFasade, IRunningObject runner, ILevelLogic levelDataProvider) {
             Initialize(gameplayFasade, runner, levelDataProvider);
@@ -79,9 +71,7 @@ namespace Runner.Gameplay.Core.Movement {
 
         public void Tick(float deltaTime) {
             if (_runner.IsRunning && _isCurrentTileValid) {
-                _runnerSpeedData.CurrentForwardSpeed = Mathf.Min(_runner.MaxSpeed, _runnerSpeedData.CurrentForwardSpeed + _runner.AccelerationSpeed * deltaTime);
-
-                var splineDistanceTraveled = _currentSplineInfo.DistanceTraveled + _runnerSpeedData.CurrentForwardSpeed * deltaTime;
+                var splineDistanceTraveled = _currentSplineInfo.DistanceTraveled + _runner.CurrentSpeed * deltaTime;
                 var splinePercentsTraveled = _currentSplineInfo.DistanceTraveled / _currentSplineInfo.Length;
 
                 if (_currentSplineInfo.PercentsTraveled >= 1f) {
