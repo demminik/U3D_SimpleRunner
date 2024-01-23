@@ -13,5 +13,4 @@ MonoBehaviour:
   m_Name: TileSet
   m_EditorClassIdentifier: 
   _availableTiles:
-  - Prefab: {fileID: 9100280950146793125, guid: 5a541c2c2c383e549b56a541ffdae1da, type: 3}
-  - Prefab: {fileID: 9100280950146793125, guid: 06768544c95ed5544acd7e0b178ef011, type: 3}
+  - Prefab: {fileID: 9100280950146793125, guid: 33dfa1510d9952a458c56d7391615296, type: 3}
