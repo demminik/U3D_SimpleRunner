@@ -22,6 +22,9 @@ namespace Runner.Gameplay.Core.Characters {
         private CharacterBuffLogic _buffLogic;
         public ICharacterBuffTargetWriter BuffTargetWriter => _buffLogic;
 
+        [SerializeField]
+        private CharacterAnimationLogic _animationLogic;
+
         public Action OnDeath;
 
         private void OnDestroy() {
@@ -34,6 +37,9 @@ namespace Runner.Gameplay.Core.Characters {
 
             // TODO: apply skin from settings
             _presentation.SkinLogic.ApplySkinFromPrefab(gameplayFasade.Settings.Character.AvailableSkins[0].Prefab);
+
+            _animationLogic.Initialize(RunningObject);
+            _animationLogic.Animator = _presentation.SkinLogic.CurrentSkin.Animator;
         }
 
         public void StartExecution() {
@@ -49,6 +55,7 @@ namespace Runner.Gameplay.Core.Characters {
         public void Tick(float deltaTime) {
             _buffLogic.Tick(deltaTime);
             _movementLogic.Tick(deltaTime);
+            _animationLogic.Tick(deltaTime);
         }
 
         public void Die() {

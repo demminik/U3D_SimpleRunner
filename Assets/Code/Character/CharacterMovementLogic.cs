@@ -49,12 +49,14 @@ namespace Runner.Gameplay.Core.Characters {
         public void Tick(float deltaTime) {
             transform.rotation = _targetRotation;
 
+            var speedForCalculations = Mathf.Max(_currentParametersProvider.MaxSpeed, MaxSpeed);
+
             // TODO: this is lazy smooth movement, need to write correct algorithm for side and vertical movement
             const float maxSpeedLerpMultiplier = 1.5f;
             var targetPosition = _targetPosition + transform.up * FloatingHeight;
 
             var targetPositionVector = targetPosition - transform.position;
-            var newPosition = transform.position + (targetPositionVector.normalized * _currentParametersProvider.MaxSpeed * maxSpeedLerpMultiplier * deltaTime);
+            var newPosition = transform.position + (targetPositionVector.normalized * speedForCalculations * maxSpeedLerpMultiplier * deltaTime);
             var newPositionVector = newPosition - transform.position;
 
             // limit movement for not to surpass target mosition

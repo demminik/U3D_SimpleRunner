@@ -14,10 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <CharacterPrefab>k__BackingField: {fileID: 4398026978101146440, guid: d19ec68e0095fca4888849741dc29bcb, type: 3}
   <AvailableSkins>k__BackingField:
-  - Prefab: {fileID: 5174364677360412882, guid: c2e1419823848cf42bf9b12a1da9ae95, type: 3}
-  - Prefab: {fileID: 4523366175772613478, guid: f0f0de80f5f30ed4b92d0eb4e2b3dced, type: 3}
+  - Prefab: {fileID: 4523366175772613478, guid: 460aaecb78d277c4a957e3d1f7893dca, type: 3}
   _characterParameters:
     <MaxSpeed>k__BackingField: 10
     <AcceleractionSpeed>k__BackingField: 10
-    <SideSpeed>k__BackingField: 15
     <FloatingHeight>k__BackingField: 0
