@@ -52,10 +52,18 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 8f98bcc4405d67f419bc85ff33525834, type: 2}
+    - target: {fileID: 4776459827664486704, guid: 73767bb551dbe214bae0b602720b8819, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5269164388495240597, guid: 73767bb551dbe214bae0b602720b8819, type: 3}
       propertyPath: m_Name
       value: CoinSkinDefault
       objectReference: {fileID: 0}
+    - target: {fileID: 8424573546612071206, guid: 73767bb551dbe214bae0b602720b8819, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8f98bcc4405d67f419bc85ff33525834, type: 2}
     - target: {fileID: 8943149220063502137, guid: 73767bb551dbe214bae0b602720b8819, type: 3}
       propertyPath: _coinType
       value: 1

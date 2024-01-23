@@ -56,6 +56,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CoinSkinSpecial3
       objectReference: {fileID: 0}
+    - target: {fileID: 8424573546612071206, guid: 73767bb551dbe214bae0b602720b8819, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: cd2a9603bb12879449c8ad161ac1be33, type: 2}
     - target: {fileID: 8943149220063502137, guid: 73767bb551dbe214bae0b602720b8819, type: 3}
       propertyPath: _coinType
       value: 4
