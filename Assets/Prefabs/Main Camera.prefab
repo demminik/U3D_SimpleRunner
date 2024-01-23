@@ -67,7 +67,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60
+  field of view: 40
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -106,5 +106,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _settings:
-    Offset: {x: 0, y: 2, z: -2}
-    Rotation: {x: 35, y: 0, z: 0}
+    Offset: {x: 0, y: 2, z: -2.5}
+    Rotation: {x: 25, y: 0, z: 0}
