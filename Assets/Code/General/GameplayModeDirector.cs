@@ -1,7 +1,6 @@
 using Runner.Gameplay.Core;
 using Runner.Gameplay.Core.Camera;
 using Runner.Gameplay.Core.Characters;
-using Runner.Gameplay.Core.Coins;
 using Runner.Gameplay.Core.Input;
 using Runner.Gameplay.Core.Interacions;
 using Runner.Gameplay.Core.Interactions.Coins;
@@ -11,6 +10,7 @@ using Runner.Gameplay.Core.Movement;
 using Runner.Gameplay.Core.Player;
 using Runner.Gameplay.Core.Pooling;
 using Runner.Gameplay.Core.Settings;
+using Runner.Gameplay.Core.Timers;
 using UnityEngine;
 
 namespace Runner.Gameplay {
@@ -38,6 +38,12 @@ namespace Runner.Gameplay {
         [SerializeField]
         private RunnerCamera _mainCamera;
 
+        // TODO: move to some time-related stuff
+        [SerializeField]
+        private TickProviderDefault _generalTickProvider;
+
+        private GameTime _gameTime;
+
         private PlayerScore _playerScore;
 
         private RunnerGameplayFasade _gameplayFasade;
@@ -48,11 +54,13 @@ namespace Runner.Gameplay {
         private bool _isActiveAndRunning = false;
 
         private void Start() {
+            CreateGameTime();
+
             CreatePlayerScore();
             var interactionProcessor = CreateInteractionProcessor();
             _poolProvider.Initialize(_settingsProvider);
 
-            _gameplayFasade = new RunnerGameplayFasade(_settingsProvider, _inputProvider, _poolProvider, interactionProcessor);
+            _gameplayFasade = new RunnerGameplayFasade(_gameTime, _settingsProvider, _inputProvider, _poolProvider, interactionProcessor);
 
             CreateLevel();
             CreateCharacter();
@@ -63,18 +71,15 @@ namespace Runner.Gameplay {
         }
 
         private void OnDestroy() {
-            if (_levelBuilder != null) {
-                _levelBuilder.Dispose();
-                _levelBuilder = null;
-            }
-
-            if (_gameplayFasade != null) {
-                _gameplayFasade.Dispose();
-                _gameplayFasade = null;
-            }
+            Dispose();
         }
 
         private void Dispose() {
+            if(_gameTime != null) {
+                _gameTime.Dispose();
+                _gameTime = null;
+            }
+
             if (_poolProvider != null) {
                 _poolProvider.Dispose();
             }
@@ -111,6 +116,7 @@ namespace Runner.Gameplay {
                 return;
             }
 
+            // TODO: bind to tick manager?
             _currentCharacter.Tick(Time.deltaTime);
             _movementManager.Tick(Time.deltaTime);
         }
@@ -120,7 +126,15 @@ namespace Runner.Gameplay {
                 return;
             }
 
+            // TODO: bind to tick manager?
             _mainCamera.Tick(Time.deltaTime);
+        }
+
+        private void CreateGameTime() {
+            // this is the place to create different time flow speed
+            var generalTickManager = new TickManager(_generalTickProvider);
+
+            _gameTime = new GameTime(generalTickManager);
         }
 
         private void CreatePlayerScore() {
@@ -155,6 +169,7 @@ namespace Runner.Gameplay {
         }
 
         private void StartExecution() {
+            _gameTime.StartExecution();
             _levelBuilder.StartExecution();
             _currentCharacter.StartExecution();
             _movementManager.StartExecution();

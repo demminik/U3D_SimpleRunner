@@ -19,13 +19,13 @@ namespace Runner.Gameplay.Core {
 
         public IInteractionProcessor InteractionProcessor { get; private set; }
 
-        public RunnerGameplayFasade(IGameplaySettingsProvider settingsProvider,
+        public RunnerGameplayFasade(GameTime gameTime,
+            IGameplaySettingsProvider settingsProvider,
             IPlayerInputProvider playerInputProvider,
             IGameplayPoolProvider poolProvider,
             IInteractionProcessor interactionProcessor) {
 
-            GameTime = new GameTime();
-
+            GameTime = gameTime;
             Settings = settingsProvider;
             PlayerInput = playerInputProvider;
             Pooling = poolProvider;
@@ -53,7 +53,10 @@ namespace Runner.Gameplay.Core {
                 InteractionProcessor = null;
             }
 
-            GameTime = null;
+            if (GameTime != null) {
+                GameTime.Dispose();
+                GameTime = null;
+            }
         }
     }
 }
