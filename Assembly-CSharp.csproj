@@ -65,13 +65,14 @@
     <Compile Include="Assets\Code\Interactions\Coin\CoinInteractionLogic.cs" />
     <Compile Include="Assets\Code\Coin\Coin.cs" />
     <Compile Include="Assets\Code\Settings\SettingsProvider\IGameplaySettingsProvider.cs" />
-    <Compile Include="Assets\Code\GameTime\GameTime.cs" />
     <Compile Include="Assets\Code\Character\CharacterModel.cs" />
     <Compile Include="Assets\Code\Settings\SpecialCoinsSet.cs" />
     <Compile Include="Assets\Code\Utils\HashUtils.cs" />
+    <Compile Include="Assets\Code\Timers\Ticking\ITickProvider.cs" />
     <Compile Include="Assets\Code\Utils\LayersHelper.cs" />
     <Compile Include="Assets\Code\Interactions\Obstacle\IObstacleInteractionProcessor.cs" />
     <Compile Include="Assets\Code\Pooling\GameObjectsPool.cs" />
+    <Compile Include="Assets\Code\Timers\GameTime.cs" />
     <Compile Include="Assets\Code\Interactions\Coin\Character\ICoinCharacterInteraction.cs" />
     <Compile Include="Assets\Code\Tile\Tile.cs" />
     <Compile Include="Assets\Code\Character\CharacterMovementLogic.cs" />
@@ -81,12 +82,14 @@
     <Compile Include="Assets\Code\Pooling\IGameplayPoolProvider.cs" />
     <Compile Include="Assets\Code\Settings\BuffSettings.cs" />
     <Compile Include="Assets\Code\Character\CharacterPresentation.cs" />
+    <Compile Include="Assets\Code\Timers\Ticking\ITickable.cs" />
     <Compile Include="Assets\Code\Settings\CharacterBuffSettings.cs" />
     <Compile Include="Assets\Code\Input\TouchPlayerInputProvider.cs" />
     <Compile Include="Assets\Code\Pooling\CoinsPool.cs" />
     <Compile Include="Assets\Code\Coin\CoinPresentation.cs" />
     <Compile Include="Assets\Code\Character\Character.cs" />
     <Compile Include="Assets\Code\Interactions\Coin\Character\CoinCharacterInteractionFlight.cs" />
+    <Compile Include="Assets\Code\Timers\Ticking\TickProviderDefault.cs" />
     <Compile Include="Assets\Code\Interactions\Coin\Character\CoinCharacterInteractionSlowdown.cs" />
     <Compile Include="Assets\Code\General\GameplayModeDirector.cs" />
     <Compile Include="Assets\Code\Buff\ICharacterBuffTargetReader.cs" />
@@ -95,6 +98,7 @@
     <Compile Include="Assets\Code\Level\LevelGenerator.cs" />
     <Compile Include="Assets\Code\Obstacle\ObstacleSpawnPoint.cs" />
     <Compile Include="Assets\Code\Buff\ICharacterBuff.cs" />
+    <Compile Include="Assets\Code\Utils\MonoBehaviourSingleton.cs" />
     <Compile Include="Assets\Code\Movement\IRunningObject.cs" />
     <Compile Include="Assets\Code\Coin\CoinSkinAnimationLogic.cs" />
     <Compile Include="Assets\Code\Buff\ICharacterBuffTargetWriter.cs" />
@@ -123,6 +127,7 @@
     <Compile Include="Assets\Code\Input\IPlayerInputProvider.cs" />
     <Compile Include="Assets\Code\Pooling\IPoolable.cs" />
     <Compile Include="Assets\Code\Movement\SplineMovementManager.cs" />
+    <Compile Include="Assets\Code\Timers\TickManager.cs" />
     <Compile Include="Assets\Code\Obstacle\Obstacle.cs" />
   </ItemGroup>
   <ItemGroup>
