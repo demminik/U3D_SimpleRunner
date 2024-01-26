@@ -35,6 +35,7 @@ namespace Runner.Gameplay.Core.Coins.View {
             var skinsPool = _gameplayFasade.Pooling.Coins.GetSkinsPool(coinType);
             if(skinsPool != null) {
                 var skinFromPool = skinsPool.GetItem();
+                skinFromPool.Initialize(_gameplayFasade);
                 _skinLogic.ApplySkin(skinFromPool);
             }
         }

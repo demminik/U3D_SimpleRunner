@@ -4911,6 +4911,7 @@ MonoBehaviour:
   _renderers:
   - {fileID: 8424573546612071206}
   _pickupEffect: {fileID: 7326378342651894771}
+  _coinSkinAnimationLogic: {fileID: 6929000484614451877}
 --- !u!114 &6929000484614451877
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -17,30 +17,64 @@ namespace Runner.Gameplay.Core.Coins.View {
         [SerializeField]
         private ParticleSystem _pickupEffect;
 
+        [SerializeField]
+        private CoinSkinAnimationLogic _coinSkinAnimationLogic;
+
+        private RunnerGameplayFasade _gameplayFasade;
         private WaitForSeconds _wfs;
+
+        private bool _isInitialized= false;
 
         private void OnDestroy() {
             Dispose();
         }
 
+        public void Initialize(RunnerGameplayFasade gameplayFasade) {
+            if(_isInitialized) {
+                return;
+            }
+
+            _gameplayFasade = gameplayFasade;
+
+            if(_coinSkinAnimationLogic != null) {
+                _coinSkinAnimationLogic.Initialize(_gameplayFasade);
+            }
+        }
+
         public void Dispose() {
+            _gameplayFasade = null;
             StopAllCoroutines();
         }
 
         public void Show() {
             StopAllCoroutines();
             _pickupEffect?.Stop(withChildren: true, ParticleSystemStopBehavior.StopEmittingAndClear);
-            SetRendererEnabled(true);
+            SetActive(true);
         }
 
         public virtual void Pickup(Action onFinish) {
-            SetRendererEnabled(false);
+            SetActive(false);
             StartCoroutine(PickupEffectCoroutine(onFinish));
+        }
+
+        private void SetActive(bool isActive) {
+            SetRendererEnabled(isActive);
+            SetAnimationEnabled(isActive);
         }
 
         protected void SetRendererEnabled(bool isEnabled) {
             foreach (Renderer renderer in _renderers) {
                 renderer.enabled = isEnabled;
+            }
+        }
+
+        protected void SetAnimationEnabled(bool isEnabled) {
+            if (_coinSkinAnimationLogic != null) {
+                if(isEnabled) {
+                    _coinSkinAnimationLogic.Enable();
+                } else {
+                    _coinSkinAnimationLogic.Disable();
+                }
             }
         }
 
@@ -66,7 +100,7 @@ namespace Runner.Gameplay.Core.Coins.View {
         }
 
         public void ProcessPoolRelease() {
-            SetRendererEnabled(false);
+            SetActive(false);
         }
     }
 }
